@@ -33,18 +33,18 @@ const checkRegister = (request, response, next) => {
   }
 
   const userNameIndex = users.findIndex((value) => value.userName === userName);
-  if (userNameIndex > 0) {
+  if (userNameIndex >= 0) {
     return response.status(404).json({
-      message: `Username already registered, 
-      use another one to register`,
+      message: `Username already registered, use another one to register`,
     });
   }
 
+  console.log(userNameIndex);
+
   const emailIndex = users.findIndex((value) => value.email === email);
-  if (emailIndex > 0) {
+  if (emailIndex >= 0) {
     return response.status(404).json({
-      message: `Email already registered, 
-    use another one to register`,
+      message: `Email already registered, use another one to register`,
     });
   }
 
